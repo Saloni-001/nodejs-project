@@ -40,8 +40,5 @@ router.get('/nearby', async (req, res) => {
       res.status(500).json({ message: 'Server Error' });
     }
   });
-  
-
-// Other CRUD operations like GET, PUT, DELETE
 
 module.exports = router;

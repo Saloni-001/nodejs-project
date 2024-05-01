@@ -6,7 +6,6 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true }
 });
 
-// Hash the password before saving
 userSchema.pre('save', async function(next) {
   try {
     const salt = await bcrypt.genSalt(10);
@@ -18,7 +17,6 @@ userSchema.pre('save', async function(next) {
   }
 });
 
-// Compare password
 userSchema.methods.comparePassword = async function(candidatePassword) {
   try {
     return await bcrypt.compare(candidatePassword, this.password);
